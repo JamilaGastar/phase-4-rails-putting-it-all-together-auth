@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_11_10_105445) do
 
   create_table "recipes", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "title"
     t.text "instructions"
     t.integer "minutes_to_complete"
@@ -29,4 +30,5 @@ ActiveRecord::Schema.define(version: 2022_11_10_105445) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "recipes", "users"
 end
